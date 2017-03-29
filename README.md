@@ -116,12 +116,20 @@ for i in range(0, path_length):
     current_city_coords = np.array(current_path[i % path_length][1])
     next_city_coords = np.array(current_path[(i + 1) % path_length][1])
     cost_total += np.sqrt(np.sum(np.square(current_city_coords - next_city_coords)))
-
-    # Alternative:
+    
+    # Alternative #1:
     # x1, y1 = self.coords[i]
     # x2, y2 = self.coords[(i + 1) % path_length]
     # cost_total += math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-return -cost_total
+    
+# Alternative #2:
+# coords = zip(self.coords, self.coords[1:] + self.coords[0:1])
+# for c1, c2 in coords:
+#    x1, y1 = c1
+#    x2, y2 = c2
+#    cost_total += np.hypot(x1 - x2, y1 - y2)
+
+return -1 * cost_total
 ```
 
 # Part IV:
